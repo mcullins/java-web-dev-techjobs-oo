@@ -93,4 +93,17 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    @Override
+    public String toString(){
+        if(this.name == null){
+            this.name = "Data not available";
+        }
+
+
+        return "\n" + "ID: " + this.id + "\n" + "Name: " + this.name +
+                "\n" + "Employer: " + this.employer + "\n" + "Location: " +
+                this.location + "\n" + "Position Type: " + this.positionType +
+                "\n" + "Core Competency: " + this.coreCompetency + "\n";
+    }
 }

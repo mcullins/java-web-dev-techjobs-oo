@@ -36,4 +36,27 @@ public class JobTest {
         assertFalse(job4.equals(job5));
     }
 
+    @Test
+    public void testForToStringStartsEndsWithSpaces(){
+        Job job6 = new Job();
+        assertTrue(job6.toString().startsWith("\n"));
+        assertTrue(job6.toString().endsWith("\n"));
+    }
+
+    @Test
+    public void testForToStringData(){
+        Job job7 = new Job("Software Developer", new Employer("DST"), new Location ("Kansas City"),
+                new PositionType("Programming"), new CoreCompetency("Efficiency"));
+        String str = "\n" + "ID: " + job7.getId() + "\n" + "Name: " + job7.getName() +
+                "\n" + "Employer: " + job7.getEmployer() + "\n" + "Location: " +
+                job7.getLocation() + "\n" + "Position Type: " + job7.getPositionType() +
+                "\n" + "Core Competency: " + job7.getCoreCompetency() + "\n";
+        assertEquals(str, job7.toString());
+    }
+
+    @Test
+    public void testForEmptyFieldDefault(){
+        Job job8 = new Job();
+        assertTrue(job8.toString().contains("Data not available"));
+    }
 }
