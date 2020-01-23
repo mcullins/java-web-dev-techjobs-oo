@@ -4,14 +4,7 @@ import java.util.Objects;
 
 public class Employer extends JobField {
 
-    public Employer(String value){
+    public Employer(String value) {
         super(value);
-    }
-
-    // Custom toString
-
-    @Override
-    public String toString() {
-        return getValue();
     }
 }
