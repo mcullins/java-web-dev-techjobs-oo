@@ -96,14 +96,34 @@ public class Job {
 
     @Override
     public String toString(){
-        if(this.name == null){
-            this.name = "Data not available";
+        //Why does "this.getName() == null" work but this.getName().equals(null)" does not?
+        if(this.getName() == null && this.getEmployer() == null && this.getLocation() == null
+        && this.positionType == null && this.getCoreCompetency() == null){
+           return "OOPS! This job does not seem to exist.";
         }
 
-
-        return "\n" + "ID: " + this.id + "\n" + "Name: " + this.name +
-                "\n" + "Employer: " + this.employer + "\n" + "Location: " +
-                this.location + "\n" + "Position Type: " + this.positionType +
-                "\n" + "Core Competency: " + this.coreCompetency + "\n";
+        String idLine =  "\n" + "ID: " + this.id;
+        String nameLine = "\n" + "Name: " + this.name;
+        String employerLine = "\n" + "Employer: " + this.employer;
+        String locationLine = "\n" + "Location: " + this.location;
+        String positionTypeLine = "\n" + "Position Type: " + this.positionType;
+        String coreCompLine =  "\n" + "Core Competency: " + this.coreCompetency;
+        String endLine = "\n";
+        if(this.name.equals("")){
+            nameLine += "Data not available";
+        }
+        if(this.employer.getValue().equals("")){
+           employerLine += "Data not available";
+        }
+        if(this.location.getValue().equals("")){
+            locationLine += "Data not available";
+        }
+        if(this.positionType.getValue().equals("")){
+            positionTypeLine += "Data not available";
+        }
+        if(this.coreCompetency.getValue().equals("")){
+            coreCompLine += "Data not available";
+        }
+        return idLine + nameLine + employerLine + locationLine + positionTypeLine + coreCompLine + endLine;
     }
 }
