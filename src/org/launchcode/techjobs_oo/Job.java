@@ -96,7 +96,7 @@ public class Job {
 
     @Override
     public String toString(){
-        //Why does "this.getName() == null" work but this.getName().equals(null)" does not?
+
         if(this.getName() == null && this.getEmployer() == null && this.getLocation() == null
         && this.positionType == null && this.getCoreCompetency() == null){
            return "OOPS! This job does not seem to exist.";
