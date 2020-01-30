@@ -21,13 +21,13 @@ public class Job {
         nextId++;
     }
 
-    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
+    public Job(String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency){
         this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        name = aName;
+        employer = aEmployer;
+        location = aLocation;
+        positionType = aPositionType;
+        coreCompetency = aCoreCompetency;
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
@@ -66,8 +66,8 @@ public class Job {
         return employer;
     }
 
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
+    public void setEmployer(Employer aEmployer) {
+        employer = aEmployer;
     }
 
     public Location getLocation() {
@@ -97,31 +97,31 @@ public class Job {
     @Override
     public String toString(){
         //Why does "this.getName() == null" work but this.getName().equals(null)" does not?
-        if(this.getName() == null && this.getEmployer() == null && this.getLocation() == null
-        && this.positionType == null && this.getCoreCompetency() == null){
+        if(name == null && employer == null && location == null
+        && positionType == null && coreCompetency == null){
            return "OOPS! This job does not seem to exist.";
         }
 
-        String idLine =  "\n" + "ID: " + this.id;
-        String nameLine = "\n" + "Name: " + this.name;
-        String employerLine = "\n" + "Employer: " + this.employer;
-        String locationLine = "\n" + "Location: " + this.location;
-        String positionTypeLine = "\n" + "Position Type: " + this.positionType;
-        String coreCompLine =  "\n" + "Core Competency: " + this.coreCompetency;
+        String idLine =  "\n" + "ID: " + id;
+        String nameLine = "\n" + "Name: " + name;
+        String employerLine = "\n" + "Employer: " + employer;
+        String locationLine = "\n" + "Location: " + location;
+        String positionTypeLine = "\n" + "Position Type: " + positionType;
+        String coreCompLine =  "\n" + "Core Competency: " + coreCompetency;
         String endLine = "\n";
-        if(this.name.equals("")){
+        if(name.equals("")){
             nameLine += "Data not available";
         }
-        if(this.employer.getValue().equals("")){
+        if(employer.getValue().equals("")){
            employerLine += "Data not available";
         }
-        if(this.location.getValue().equals("")){
+        if(location.getValue().equals("")){
             locationLine += "Data not available";
         }
-        if(this.positionType.getValue().equals("")){
+        if(positionType.getValue().equals("")){
             positionTypeLine += "Data not available";
         }
-        if(this.coreCompetency.getValue().equals("")){
+        if(coreCompetency.getValue().equals("")){
             coreCompLine += "Data not available";
         }
         return idLine + nameLine + employerLine + locationLine + positionTypeLine + coreCompLine + endLine;
